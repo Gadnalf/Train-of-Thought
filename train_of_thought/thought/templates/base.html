@@ -11,13 +11,13 @@
 			<h3>Starting topic: {% block start_topic %}Shawshank Redemption{% endblock %}</h3>
 		</div>
 		<div style="float: right; width: 50%">
-			<h3 align="right">Ending topic: Bananas</h3>
+			<h3 align="right">{% block end_topic %}Ending topic: Bananas{% endblock %}</h3>
 		</div>
 		<div>
 			<p>Current tweet:</p>
 			<p>
-				Everyone knows what Pelosi's doing right? She's going to hold on to those articles
-				until Nov 2020. Why not? They did it to our SCJ nominee.
+				{% block current_tweet %}Everyone knows what Pelosi's doing right? She's going to hold on to those articles
+				until Nov 2020. Why not? They did it to our SCJ nominee.{% endblock %}
 			</p>
 		</div>
 		<div style="float: left; width: 25%">

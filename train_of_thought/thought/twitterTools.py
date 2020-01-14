@@ -1,10 +1,16 @@
 from twython import Twython
+from random import sample
 import yweather
 import json
+import os
+module_dir = os.path.dirname(__file__)  # get current directory
+file_path = os.path.join(module_dir, 'twitter_credentials.json')
 
 def load_twitter():
     # Load credentials from json file
-    with open("twitter_credentials.json", "r") as file:
+    #print(os.listdir('.'))
+    #print(os.path.isfile(file_path))
+    with open(file_path, "r") as file:
         creds = json.load(file)
 
     # Get twitter
@@ -41,14 +47,9 @@ def get_trending(city, country):
 
     return trending
 
-
-trending = get_trending("toronto", "canada")
-print(trending)
-
-tweets = search_twitter("dab", 20)
-i = 0
-for tweet in tweets:
-    i += 1
-    print("tweet " + str(i) + ":")
-    print(' '.join(tweet))
-
+def get_random_trending(city, country, num):
+    '''
+    Return some random number of trending topics
+    '''
+    trending_sample = sample(get_trending(city=city,country=country), num)
+    return trending_sample
