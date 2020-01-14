@@ -1,0 +1,40 @@
+﻿{% load static %}<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}Train of Thought{% endblock %}</title>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		{% block content %}
+		{% endblock %}
+		<div style="float: left; width: 50%">
+			<h3>Starting topic: {% block start_topic %}Shawshank Redemption{% endblock %}</h3>
+		</div>
+		<div style="float: right; width: 50%">
+			<h3 align="right">Ending topic: Bananas</h3>
+		</div>
+		<div>
+			<p>Current tweet:</p>
+			<p>
+				Everyone knows what Pelosi's doing right? She's going to hold on to those articles
+				until Nov 2020. Why not? They did it to our SCJ nominee.
+			</p>
+		</div>
+		<div style="float: left; width: 25%">
+			<p>@roydanroy <a href="/">said</a></p>
+			<p>
+				This would be a pop-up <br />
+				Blah blah ha ha eeeeeeee
+			</p>
+		</div>
+		<div style="float: left; width: 25%">
+			<p>@ass_deans <a href="/">said</a></p>
+		</div>
+		<div style="float: left; width: 25%">
+			<p>@animesh_garg <a href="/">said</a></p>
+		</div>
+		<div style="float: left; width: 25%">
+			<p>@DunlapInstitute <a href="/">said</a></p>
+		</div>
+	</body>
+</html>
