@@ -3,3 +3,4 @@ yweather
 django
 django_heroku
 boto
+gunicorn
