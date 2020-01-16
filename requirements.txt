@@ -2,3 +2,4 @@ twython
 yweather
 django
 django_heroku
+boto
