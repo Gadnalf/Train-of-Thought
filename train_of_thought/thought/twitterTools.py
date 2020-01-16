@@ -3,18 +3,24 @@ from random import sample
 import yweather
 import json
 import os
-module_dir = os.path.dirname(__file__)  # get current directory
-file_path = os.path.join(module_dir, 'twitter_credentials.json')
+from boto.s3.connection import S3Connection
+
+debug = False
+if(debug):
+    module_dir = os.path.dirname(__file__)  # get current directory
+    file_path = os.path.join(module_dir, 'twitter_credentials.json')
+
 
 def load_twitter():
-    # Load credentials from json file
-    #print(os.listdir('.'))
-    #print(os.path.isfile(file_path))
-    with open(file_path, "r") as file:
-        creds = json.load(file)
+    # Load credentials from json file if on local
+    if(debug):
+        with open(file_path, "r") as file:
+            creds = json.load(file)
+        twitter = Twython(creds['CONSUMER_KEY'], creds['CONSUMER_SECRET'])
+    # Or load credentials from config
+    else:
+        twitter = Twython(os.environ['CONSUMER_KEY'], os.environ['CONSUMER_SECRET'])
 
-    # Get twitter
-    twitter = Twython(creds['CONSUMER_KEY'], creds['CONSUMER_SECRET'])
     return twitter
 
 def search_twitter(search_text, num):
