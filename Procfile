@@ -1,1 +1,1 @@
-web: gunicorn myproject.wsgi
+web: gunicorn train_of_thought.wsgi
