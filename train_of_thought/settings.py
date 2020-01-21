@@ -16,7 +16,14 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@@h%f*zn!h57v+kl=+1et&m8@z1x8rhi)&2kf(4##zet546043'
+if(DEBUG):
+    module_dir = os.path.dirname(__file__)  # get current directory
+    file_path = os.path.join(module_dir, 'django_credentials.json')
+    with open(file_path, "r") as file:
+        creds = json.load(file)
+    SECRET_KEY = creds['DJANGO_SECRET_KEY']
+else:
+    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
