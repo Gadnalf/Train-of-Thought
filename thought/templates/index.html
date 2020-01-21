@@ -2,14 +2,14 @@
 {% extends 'base.html' %}
 
 {% block title %}
-aaaaaAAAAAAAAA
+Train of Thought
 {% endblock %}
 
 {% block content %}
 <form method="post">
 	{% csrf_token %}
 	{{ form.as_p }}
-	<button type="submit">Sign up</button>
+	<button type="submit">This button does nothing</button>
 </form>
 {% endblock %}
 
